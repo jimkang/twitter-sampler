@@ -13,7 +13,7 @@ Usage
 
 **As a module**
 
-First, instantiate a makeSampleList function:
+*First*, instantiate a makeSampleList function:
 
     var createMakeSampleList = require('make-sample-list');
     var makeSampleList = createMakeSampleList({
@@ -33,25 +33,25 @@ For added control and/or testing, you can optionally specify `createTwit` and `s
 
 (If you don't provide these, twitter-sampler will fill them in for you.)
 
-Then, you can use `makeSampleList`.
+*Then*, you can use `makeSampleList`.
 
-  var makeSampleListOpts = {
-    listOwner: 'smidgeo',
-    listSlug: 'importants-ppls',
-    usernamesToExclude: ['deathmtn'],
-    sampleSize: 50
-  };
+    var makeSampleListOpts = {
+      listOwner: 'smidgeo',
+      listSlug: 'importants-ppls',
+      usernamesToExclude: ['deathmtn'],
+      sampleSize: 50
+    };
 
-  makeSampleList(makeSampleListOpts, logResult);
+    makeSampleList(makeSampleListOpts, logResult);
 
-  function logUpdateResult(error, result) {
-    if (error) {
-      console.log(error);
+    function logUpdateResult(error, result) {
+      if (error) {
+        console.log(error);
+      }
+      else {
+        console.log('makeSampleList result:', JSON.stringify(result, null, '  '));
+      }
     }
-    else {
-      console.log('makeSampleList result:', JSON.stringify(result, null, '  '));
-    }
-  }
 
 The logged output will be the result of the final Twitter call to add members to the 'importants-ppls' list. If there was no error, there should be a list with the name you specified for the user corresponding to the Twitter credentials you provided.
 

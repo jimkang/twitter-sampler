@@ -1,6 +1,6 @@
 {
   "name": "twitter-sampler",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Creates (or updates) a Twitter list comprised of a sampling of all of the users a Twitter user follows.",
   "main": "make-sample-list.js",
   "scripts": {
