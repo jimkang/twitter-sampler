@@ -11,7 +11,19 @@ Installation
 Usage
 -----
 
-Then, create a `config.js` file in the project root that contains your [Twitter API keys](https://apps.twitter.com/). Example:
+TODO: Module use.
+
+There's a tool included that you can use like so:
+
+    cd node_modules/twitter-sampler
+    make run-scratch
+
+This should create a `sample-of-the-week` list for your Twitter account containing 50 users sampled at random, if you have set up a `config.js` file, as described below.
+
+Tests
+-----
+
+Create a `config.js` file in the project root that contains your [Twitter API keys](https://apps.twitter.com/). Example:
 
     module.exports = {
       twitter: {
@@ -19,17 +31,14 @@ Then, create a `config.js` file in the project root that contains your [Twitter 
         consumer_secret: 'asdfasdjfbkjqwhbefubvskjhfbgasdjfhgaksjdhfgaksdxvc',
         access_token: '9999999999-zxcvkljhpoiuqwerkjhmnb,mnzxcvasdklfhwer',
         access_token_secret: 'opoijkljsadfbzxcnvkmokwertlknfgmoskdfgossodrh'
-      }
+      },
+      testListOwner: 'you',
+      excludeUsernames: [
+        'deathmtn'
+      ]
     };
 
-    make run-scratch
-
-This should create a `sample-of-the-week` list for your Twitter account containing 50 users sampled at random.
-
-Tests
------
-
-Run tests with `make test`.
+The test can then read this for Twitter API credentials and settings. You can run it with `make test`.
 
 License
 -------
