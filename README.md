@@ -13,7 +13,49 @@ Usage
 
 **As a module**
 
-TODO
+First, instantiate a makeSampleList function:
+
+    var createMakeSampleList = require('make-sample-list');
+    var makeSampleList = createMakeSampleList({
+      twitterConfig: {
+        consumer_key: 'asdfkljqwerjasdfalpsdfjas',
+        consumer_secret: 'asdfasdjfbkjqwhbefubvskjhfbgasdjfhgaksjdhfgaksdxvc',
+        access_token: '9999999999-zxcvkljhpoiuqwerkjhmnb,mnzxcvasdklfhwer',
+        access_token_secret: 'opoijkljsadfbzxcnvkmokwertlknfgmoskdfgossodrh'
+      }
+    });
+
+For added control and/or testing, you can optionally specify `createTwit` and `sample` in the `createMakeSampleList` opts.
+
+`createTwit` should be a function that produces an object that behaves like [Twit](https://github.com/ttezel/twit).
+
+`sample` should be a function that [takes an array and a sample size](https://github.com/jimkang/probable/blob/master/probable.js#L251) and returns a random sampling from the array of that size.
+
+(If you don't provide these, twitter-sampler will fill them in for you.)
+
+Then, you can use `makeSampleList`.
+
+  var makeSampleListOpts = {
+    listOwner: 'smidgeo',
+    listSlug: 'importants-ppls',
+    usernamesToExclude: ['deathmtn'],
+    sampleSize: 50
+  };
+
+  makeSampleList(makeSampleListOpts, logResult);
+
+  function logUpdateResult(error, result) {
+    if (error) {
+      console.log(error);
+    }
+    else {
+      console.log('makeSampleList result:', JSON.stringify(result, null, '  '));
+    }
+  }
+
+The logged output will be the result of the final Twitter call to add members to the 'importants-ppls' list. If there was no error, there should be a list with the name you specified for the user corresponding to the Twitter credentials you provided.
+
+All of the opts are required except for `usernamesToExclude`.
 
 **As a tool**
 

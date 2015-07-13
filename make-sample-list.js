@@ -43,6 +43,10 @@ function createMakeSampleList(createOpts) {
       sampleSize = opts.sampleSize;
     }
 
+    if (!usernamesToExclude) {
+      usernamesToExclude = [];
+    }
+
     async.waterfall(
       [
         prepareTargetList,

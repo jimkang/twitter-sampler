@@ -12,7 +12,7 @@ var test = require('tape');
 test('Functional test', function functionalTest(t) {
   t.plan(3);
 
-  var sampleSize = probable.rollDie(50);  
+  var sampleSize = probable.rollDie(50);
 
   var makeSampleList = createMakeSampleList({
     twitterConfig: config.twitter
