@@ -1,0 +1,32 @@
+{
+  "name": "twitter-sampler",
+  "version": "1.0.0",
+  "description": "Creates (or updates) a Twitter list comprised of a sampling of all of the users a Twitter user follows.",
+  "main": "make-sample-list.js",
+  "scripts": {
+    "test": "make test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:jimkang/twitter-sampler.git"
+  },
+  "keywords": [],
+  "author": "Jim Kang",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jimkang/twitter-sampler/issues"
+  },
+  "homepage": "https://github.com/jimkang/twitter-sampler",
+  "devDependencies": {
+    "tape": "^3.0.3"
+  },
+  "dependencies": {
+    "async": "^1.3.0",
+    "call-next-tick": "^1.1.2",
+    "lodash": "^3.10.0",
+    "probable": "^1.7.0",
+    "queue-async": "^1.0.7",
+    "seedrandom": "^2.4.2",
+    "twit": "^2.0.0"
+  }
+}
