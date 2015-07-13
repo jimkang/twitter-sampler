@@ -11,14 +11,22 @@ Installation
 Usage
 -----
 
-TODO: Module use.
+**As a module**
+
+TODO
+
+**As a tool**
 
 There's a tool included that you can use like so:
 
     cd node_modules/twitter-sampler
     make run-scratch
 
-This should create a `sample-of-the-week` list for your Twitter account containing 50 users sampled at random, if you have set up a `config.js` file, as described below.
+This should create a `sample-of-the-week` list for your Twitter account containing 50 users sampled at random, if you have set up a `config.js` file, as described below in the Tests section.
+
+I personally have it run daily at 5 AM EDT using the following cron entry:
+
+0 9 * * * cd ~/where-it-is-installed/twitter-sampler && make run-scratch
 
 Tests
 -----

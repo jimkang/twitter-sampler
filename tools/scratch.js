@@ -23,7 +23,7 @@ var makeSampleList = createMakeSampleList({
 
 var makeSampleListOpts = {
   listOwner: config.testListOwner,
-  listSlug: 'sample-du-jour',
+  listSlug: 'daily-sample',
   usernamesToExclude: config.excludeUsernames,
   sampleSize: sampleSize
 };
