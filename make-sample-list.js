@@ -3,6 +3,8 @@ var filterFriends = require('./filter-friends');
 var prepareList = require('./prepare-list');
 var async = require('async');
 var callNextTick = require('call-next-tick');
+var Twit = require('twit');
+var probable = require('probable');
 
 function createMakeSampleList(createOpts) {
   var twitterConfig;
@@ -13,6 +15,16 @@ function createMakeSampleList(createOpts) {
     twitterConfig = createOpts.twitterConfig;
     createTwit = createOpts.createTwit;
     sample = createOpts.sample;
+  }
+
+  if (!createTwit) {
+    createTwit = function createTwit(opts) {
+      return new Twit(opts);
+    };
+  }
+
+  if (!sample) {
+    sample = probable.sample;
   }
 
   var twit = createTwit(twitterConfig);

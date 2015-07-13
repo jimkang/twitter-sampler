@@ -5,30 +5,17 @@
 // directory. See README for details.
 
 var config = require('../../config.js');
-var Twit = require('twit');
-var createProbable = require('probable').createProbable;
-var seedrandom = require('seedrandom');
+var probable = require('probable');
 var createMakeSampleList = require('../../make-sample-list');
 var test = require('tape');
 
 test('Functional test', function functionalTest(t) {
   t.plan(3);
 
-  var seed = new Date().toISOString();
-  console.log('seed:', seed);
-
-  var probable = createProbable({
-    random: seedrandom(seed)
-  });
-
   var sampleSize = probable.rollDie(50);  
 
   var makeSampleList = createMakeSampleList({
-    twitterConfig: config.twitter,
-    createTwit: function createTwit(opts) {
-      return new Twit(opts);
-    },
-    sample: probable.sample
+    twitterConfig: config.twitter
   });
 
   var makeSampleListOpts = {
